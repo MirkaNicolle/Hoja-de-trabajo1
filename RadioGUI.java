@@ -36,6 +36,7 @@ public class RadioGUI {
 	String display;
 	boolean frequency = false;
 	DecimalFormat numberFormat = new DecimalFormat("#.00");
+	DecimalFormat numberFormat2 = new DecimalFormat("#");
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -162,6 +163,9 @@ public class RadioGUI {
 		btnNewButton_7.setBackground(Color.DARK_GRAY);
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frequency = false;
+				display = String.valueOf(am);
+				txtRadio.setText(display);
 			}
 		});
 		btnNewButton_7.setBounds(10, 86, 69, 21);
@@ -184,7 +188,7 @@ public class RadioGUI {
 						txtRadio.setText(display);
 					} else {
 						am = am + 10;
-						display = String.valueOf(numberFormat.format(am));
+						display = String.valueOf(numberFormat2.format(am));
 						txtRadio.setText(display);
 					} 
 				}else { txtRadio.setText("");
@@ -208,7 +212,7 @@ public class RadioGUI {
 						txtRadio.setText(display);
 					} else {
 						am = am - 10;
-						display = String.valueOf(numberFormat.format(am));
+						display = String.valueOf(am);
 						txtRadio.setText(display);
 					} 
 				}else { txtRadio.setText("");
