@@ -1,9 +1,9 @@
 // Universidad del Valle de Guatemala //
 // Algoritmos y Estructuras de datos  //
-// Secciï¿½n 70                        //
+// Sección 70                         //
 // 									  //
 // M. Alejandro Alvarez Vidal - 12429 //
-// Daniela Villamar                   //
+// Daniela Villamar 			      //
 // Mirka Monzon                       //
 import java.awt.EventQueue;
 
@@ -25,8 +25,15 @@ public class RadioGUI {
 	private JTextField txtRadio;
 
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
+	// Creation of variables
+	int am = 530;
+	double fm = 87.90;
+	double saveButtons[];
+	boolean power = false;
+	String display;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -92,7 +99,6 @@ public class RadioGUI {
 		txtRadio = new JTextField();
 		txtRadio.setHorizontalAlignment(SwingConstants.CENTER);
 		txtRadio.setFont(new Font("Tahoma", Font.PLAIN, 72));
-		txtRadio.setText("Radio");
 		txtRadio.setForeground(new Color(255, 255, 255));
 		txtRadio.setBackground(new Color(0, 0, 0));
 		txtRadio.setBounds(89, 11, 306, 123);
@@ -128,6 +134,16 @@ public class RadioGUI {
 		JButton btnNewButton_6 = new JButton("POWER");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (power == false) { 
+					power = true;
+					txtRadio.setText("Welcome");
+					display = String.valueOf(fm);
+					txtRadio.setText(display);
+				} else {
+					power = false;
+					txtRadio.setText("");
+							
+				}
 			}
 		});
 		btnNewButton_6.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -153,5 +169,19 @@ public class RadioGUI {
 		btnFm.setBackground(Color.DARK_GRAY);
 		btnFm.setBounds(10, 113, 69, 21);
 		frame.getContentPane().add(btnFm);
+		
+		JButton btnNewButton_8 = new JButton(">");
+		btnNewButton_8.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton_8.setBackground(Color.DARK_GRAY);
+		btnNewButton_8.setForeground(Color.RED);
+		btnNewButton_8.setBounds(413, 11, 48, 23);
+		frame.getContentPane().add(btnNewButton_8);
+		
+		JButton button = new JButton("<");
+		button.setForeground(Color.RED);
+		button.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button.setBackground(Color.DARK_GRAY);
+		button.setBounds(413, 45, 48, 23);
+		frame.getContentPane().add(button);
 	}
 }
