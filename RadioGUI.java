@@ -141,7 +141,6 @@ public class RadioGUI {
 				if (power == false) { 
 					power = true;
 					frequency = true;
-					txtRadio.setText("Welcome");
 					display = String.valueOf(numberFormat.format(fm));
 					txtRadio.setText(display);
 				} else {
@@ -163,9 +162,14 @@ public class RadioGUI {
 		btnNewButton_7.setBackground(Color.DARK_GRAY);
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frequency = false;
-				display = String.valueOf(am);
-				txtRadio.setText(display);
+				if (power == true) {
+					frequency = false;
+					display = String.valueOf(am);
+					txtRadio.setText(display);
+				} else {
+				
+				}
+			
 			}
 		});
 		btnNewButton_7.setBounds(10, 86, 69, 21);
@@ -174,9 +178,13 @@ public class RadioGUI {
 		JButton btnFm = new JButton("FM");
 		btnFm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frequency = true;
-				display = String.valueOf(numberFormat.format(fm));
-				txtRadio.setText(display);
+				if (power == true) {
+					frequency = true;
+					display = String.valueOf(numberFormat.format(fm));
+					txtRadio.setText(display);
+				} else {
+					
+				}
 			}
 		});
 		btnFm.setForeground(Color.RED);
