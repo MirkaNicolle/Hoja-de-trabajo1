@@ -12,6 +12,7 @@ import javax.swing.JDesktopPane;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -33,6 +34,8 @@ public class RadioGUI {
 	double saveButtons[];
 	boolean power = false;
 	String display;
+	boolean frequency = false;
+	DecimalFormat numberFormat = new DecimalFormat("#.00");
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -136,8 +139,9 @@ public class RadioGUI {
 			public void actionPerformed(ActionEvent e) {
 				if (power == false) { 
 					power = true;
+					frequency = true;
 					txtRadio.setText("Welcome");
-					display = String.valueOf(fm);
+					display = String.valueOf(numberFormat.format(fm));
 					txtRadio.setText(display);
 				} else {
 					power = false;
@@ -171,6 +175,21 @@ public class RadioGUI {
 		frame.getContentPane().add(btnFm);
 		
 		JButton btnNewButton_8 = new JButton(">");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (power == true) {
+					if (frequency == true) {
+						fm = fm+0.20;
+						display = String.valueOf(numberFormat.format(fm));
+						txtRadio.setText(display);
+					} else {
+						am = am + 10;
+						display = String.valueOf(numberFormat.format(am));
+						txtRadio.setText(display);
+					}
+				}
+			}
+		});
 		btnNewButton_8.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_8.setBackground(Color.DARK_GRAY);
 		btnNewButton_8.setForeground(Color.RED);
