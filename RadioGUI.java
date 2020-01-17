@@ -34,7 +34,7 @@ public class RadioGUI {
 	double saveButtons[];
 	boolean power = false;
 	String display;
-	boolean frequency = false;
+	boolean frequency = true;
 	DecimalFormat numberFormat = new DecimalFormat("#.00");
 	DecimalFormat numberFormat2 = new DecimalFormat("#");
 	
@@ -72,6 +72,67 @@ public class RadioGUI {
 		desktopPane.setBounds(0, 260, 434, 1);
 		frame.getContentPane().add(desktopPane);
 		
+		// Power Button
+		
+				JButton btnNewButton_6 = new JButton("POWER");
+				btnNewButton_6.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (power == false) { 
+							power = true;
+							if (frequency == true) {
+							display = String.valueOf(numberFormat.format(fm));
+							txtRadio.setText(display);
+							} else {
+								display = String.valueOf(numberFormat2.format(am));
+								txtRadio.setText(display);
+							}
+						} else {
+							power = false;
+							txtRadio.setText("");
+									
+						}
+					}
+				});
+		
+				// Previous station Button
+				JButton button = new JButton("<");
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (power == true) {
+							if (frequency == true) {
+								fm = fm-0.20;
+								display = String.valueOf(numberFormat.format(fm));
+								txtRadio.setText(display);
+							} else {
+								am = am - 10;
+								display = String.valueOf(am);
+								txtRadio.setText(display);
+							} 
+						}else { txtRadio.setText("");
+						
+						}
+					}
+				});
+		
+				// Next/forward station button
+				JButton btnNewButton_8 = new JButton(">");
+				btnNewButton_8.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (power == true) {
+							if (frequency == true) {
+								fm = fm+0.20;
+								display = String.valueOf(numberFormat.format(fm));
+								txtRadio.setText(display);
+							} else {
+								am = am + 10;
+								display = String.valueOf(numberFormat2.format(am));
+								txtRadio.setText(display);
+							} 
+						}else { txtRadio.setText("");
+						
+						}
+					}
+				});
 		JButton btnNewButton = new JButton("SET 1");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -135,27 +196,14 @@ public class RadioGUI {
 		btnSet_5.setBounds(405, 222, 69, 23);
 		frame.getContentPane().add(btnSet_5);
 		
-		JButton btnNewButton_6 = new JButton("POWER");
-		btnNewButton_6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (power == false) { 
-					power = true;
-					frequency = true;
-					display = String.valueOf(numberFormat.format(fm));
-					txtRadio.setText(display);
-				} else {
-					power = false;
-					txtRadio.setText("");
-							
-				}
-			}
-		});
+		
 		btnNewButton_6.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_6.setBackground(Color.DARK_GRAY);
 		btnNewButton_6.setForeground(Color.RED);
 		btnNewButton_6.setBounds(2, 11, 82, 36);
 		frame.getContentPane().add(btnNewButton_6);
 		
+		// AM button 
 		JButton btnNewButton_7 = new JButton("AM");
 		btnNewButton_7.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_7.setForeground(Color.RED);
@@ -193,48 +241,14 @@ public class RadioGUI {
 		btnFm.setBounds(10, 113, 69, 21);
 		frame.getContentPane().add(btnFm);
 		
-		JButton btnNewButton_8 = new JButton(">");
-		btnNewButton_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (power == true) {
-					if (frequency == true) {
-						fm = fm+0.20;
-						display = String.valueOf(numberFormat.format(fm));
-						txtRadio.setText(display);
-					} else {
-						am = am + 10;
-						display = String.valueOf(numberFormat2.format(am));
-						txtRadio.setText(display);
-					} 
-				}else { txtRadio.setText("");
-				
-				}
-			}
-		});
+		
 		btnNewButton_8.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_8.setBackground(Color.DARK_GRAY);
 		btnNewButton_8.setForeground(Color.RED);
 		btnNewButton_8.setBounds(413, 11, 48, 23);
 		frame.getContentPane().add(btnNewButton_8);
 		
-		JButton button = new JButton("<");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (power == true) {
-					if (frequency == true) {
-						fm = fm-0.20;
-						display = String.valueOf(numberFormat.format(fm));
-						txtRadio.setText(display);
-					} else {
-						am = am - 10;
-						display = String.valueOf(am);
-						txtRadio.setText(display);
-					} 
-				}else { txtRadio.setText("");
-				
-				}
-			}
-		});
+		
 		button.setForeground(Color.RED);
 		button.setFont(new Font("Tahoma", Font.BOLD, 14));
 		button.setBackground(Color.DARK_GRAY);
