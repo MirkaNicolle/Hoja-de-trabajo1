@@ -116,10 +116,24 @@ public class RadioGUI {
 								fm = fm-0.20;
 								display = String.valueOf(numberFormat.format(fm));
 								txtRadio.setText(display);
+								if (fm < 87.90) {
+									fm = 107.90;
+									display = String.valueOf(numberFormat.format(fm));
+									txtRadio.setText(display);
+								} else {
+									
+								}
 							} else {
 								am = am - 10;
 								display = String.valueOf(am);
 								txtRadio.setText(display);
+								if (am < 530) {
+									am = 1610;
+									display = String.valueOf(am);
+									txtRadio.setText(display);
+								} else {
+									
+								}
 							} 
 						}else { txtRadio.setText("");
 						
@@ -137,10 +151,25 @@ public class RadioGUI {
 								display = String.valueOf(numberFormat.format(fm));
 								txtRadio.setText(display);
 								lblNewLabel.setText("FM");
+								if (fm > 107.90) {
+									fm = 87.90;
+									display = String.valueOf(numberFormat.format(fm));
+									txtRadio.setText(display);
+								} else {
+									
+								}
+									
 							} else {
 								am = am + 10;
 								display = String.valueOf(numberFormat2.format(am));
 								txtRadio.setText(display);
+								if (am > 1610) {
+									am = 530;
+									display = String.valueOf(am);
+									txtRadio.setText(display);
+								} else {
+									
+								}
 								
 							} 
 						}else { txtRadio.setText("");
