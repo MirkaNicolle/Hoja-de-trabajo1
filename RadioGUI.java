@@ -172,6 +172,13 @@ public class RadioGUI {
 		frame.getContentPane().add(btnNewButton_7);
 		
 		JButton btnFm = new JButton("FM");
+		btnFm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frequency = true;
+				display = String.valueOf(numberFormat.format(fm));
+				txtRadio.setText(display);
+			}
+		});
 		btnFm.setForeground(Color.RED);
 		btnFm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnFm.setBackground(Color.DARK_GRAY);
