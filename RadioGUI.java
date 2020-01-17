@@ -186,7 +186,9 @@ public class RadioGUI {
 						am = am + 10;
 						display = String.valueOf(numberFormat.format(am));
 						txtRadio.setText(display);
-					}
+					} 
+				}else { txtRadio.setText("");
+				
 				}
 			}
 		});
@@ -197,6 +199,23 @@ public class RadioGUI {
 		frame.getContentPane().add(btnNewButton_8);
 		
 		JButton button = new JButton("<");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (power == true) {
+					if (frequency == true) {
+						fm = fm-0.20;
+						display = String.valueOf(numberFormat.format(fm));
+						txtRadio.setText(display);
+					} else {
+						am = am - 10;
+						display = String.valueOf(numberFormat.format(am));
+						txtRadio.setText(display);
+					} 
+				}else { txtRadio.setText("");
+				
+				}
+			}
+		});
 		button.setForeground(Color.RED);
 		button.setFont(new Font("Tahoma", Font.BOLD, 14));
 		button.setBackground(Color.DARK_GRAY);
