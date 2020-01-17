@@ -72,6 +72,15 @@ public class RadioGUI {
 		desktopPane.setBounds(0, 260, 434, 1);
 		frame.getContentPane().add(desktopPane);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBackground(Color.BLACK);
+		lblNewLabel.setForeground(Color.GREEN);
+		lblNewLabel.setBounds(375, 136, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		if (power == false) {
+			lblNewLabel.setText("");
+		}
+		
 		// Power Button
 		
 				JButton btnNewButton_6 = new JButton("POWER");
@@ -82,18 +91,22 @@ public class RadioGUI {
 							if (frequency == true) {
 							display = String.valueOf(numberFormat.format(fm));
 							txtRadio.setText(display);
+							lblNewLabel.setText("FM");
 							} else {
 								display = String.valueOf(numberFormat2.format(am));
 								txtRadio.setText(display);
+								lblNewLabel.setText("AM");
 							}
 						} else {
 							power = false;
 							txtRadio.setText("");
+							lblNewLabel.setText("");
 									
 						}
 					}
 				});
-		
+				
+				
 				// Previous station Button
 				JButton button = new JButton("<");
 				button.addActionListener(new ActionListener() {
@@ -123,16 +136,62 @@ public class RadioGUI {
 								fm = fm+0.20;
 								display = String.valueOf(numberFormat.format(fm));
 								txtRadio.setText(display);
+								lblNewLabel.setText("FM");
 							} else {
 								am = am + 10;
 								display = String.valueOf(numberFormat2.format(am));
 								txtRadio.setText(display);
+								
 							} 
 						}else { txtRadio.setText("");
 						
 						}
 					}
 				});
+				
+				
+				// AM button 
+				JButton btnNewButton_7 = new JButton("AM");
+				btnNewButton_7.setFont(new Font("Tahoma", Font.BOLD, 12));
+				btnNewButton_7.setForeground(Color.RED);
+				btnNewButton_7.setBackground(Color.DARK_GRAY);
+				btnNewButton_7.setBounds(10, 86, 69, 21);
+				frame.getContentPane().add(btnNewButton_7);
+				btnNewButton_7.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (power == true) {
+							frequency = false;
+							display = String.valueOf(am);
+							txtRadio.setText(display);
+							lblNewLabel.setText("AM");
+						} else {
+						
+						}
+					
+					}
+				});
+				
+				// FM Button
+				
+				JButton btnFm = new JButton("FM");
+				btnFm.setForeground(Color.RED);
+				btnFm.setFont(new Font("Tahoma", Font.BOLD, 12));
+				btnFm.setBackground(Color.DARK_GRAY);
+				btnFm.setBounds(10, 113, 69, 21);
+				frame.getContentPane().add(btnFm);
+				btnFm.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (power == true) {
+							frequency = true;
+							display = String.valueOf(numberFormat.format(fm));
+							txtRadio.setText(display);
+							lblNewLabel.setText("FM");
+						} else {
+							
+						}
+					}
+				});
+				
 		JButton btnNewButton = new JButton("SET 1");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -162,6 +221,7 @@ public class RadioGUI {
 		frame.getContentPane().add(btnNewButton_5);
 		
 		txtRadio = new JTextField();
+
 		txtRadio.setHorizontalAlignment(SwingConstants.CENTER);
 		txtRadio.setFont(new Font("Tahoma", Font.PLAIN, 72));
 		txtRadio.setForeground(new Color(255, 255, 255));
@@ -203,43 +263,8 @@ public class RadioGUI {
 		btnNewButton_6.setBounds(2, 11, 82, 36);
 		frame.getContentPane().add(btnNewButton_6);
 		
-		// AM button 
-		JButton btnNewButton_7 = new JButton("AM");
-		btnNewButton_7.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_7.setForeground(Color.RED);
-		btnNewButton_7.setBackground(Color.DARK_GRAY);
-		btnNewButton_7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (power == true) {
-					frequency = false;
-					display = String.valueOf(am);
-					txtRadio.setText(display);
-				} else {
-				
-				}
-			
-			}
-		});
-		btnNewButton_7.setBounds(10, 86, 69, 21);
-		frame.getContentPane().add(btnNewButton_7);
 		
-		JButton btnFm = new JButton("FM");
-		btnFm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (power == true) {
-					frequency = true;
-					display = String.valueOf(numberFormat.format(fm));
-					txtRadio.setText(display);
-				} else {
-					
-				}
-			}
-		});
-		btnFm.setForeground(Color.RED);
-		btnFm.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnFm.setBackground(Color.DARK_GRAY);
-		btnFm.setBounds(10, 113, 69, 21);
-		frame.getContentPane().add(btnFm);
+		
 		
 		
 		btnNewButton_8.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -254,5 +279,8 @@ public class RadioGUI {
 		button.setBackground(Color.DARK_GRAY);
 		button.setBounds(413, 45, 48, 23);
 		frame.getContentPane().add(button);
+		
+		
+		
 	}
 }
