@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 
 public class RadioGUI {
 
-	private JFrame frame;
+	private JFrame frmRadio;
 	private JTextField txtRadio;
 
 	/**
@@ -43,7 +43,7 @@ public class RadioGUI {
 			public void run() {
 				try {
 					RadioGUI window = new RadioGUI();
-					window.frame.setVisible(true);
+					window.frmRadio.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,21 +62,23 @@ public class RadioGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(0, 0, 0));
-		frame.setBounds(100, 100, 502, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmRadio = new JFrame();
+		frmRadio.setTitle("Radio");
+		frmRadio.setResizable(false);
+		frmRadio.getContentPane().setBackground(new Color(0, 0, 0));
+		frmRadio.setBounds(100, 100, 502, 300);
+		frmRadio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRadio.getContentPane().setLayout(null);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBounds(0, 260, 434, 1);
-		frame.getContentPane().add(desktopPane);
+		frmRadio.getContentPane().add(desktopPane);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBackground(Color.BLACK);
 		lblNewLabel.setForeground(Color.GREEN);
 		lblNewLabel.setBounds(375, 136, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
+		frmRadio.getContentPane().add(lblNewLabel);
 		if (power == false) {
 			lblNewLabel.setText("");
 		}
@@ -185,7 +187,7 @@ public class RadioGUI {
 				btnNewButton_7.setForeground(Color.RED);
 				btnNewButton_7.setBackground(Color.DARK_GRAY);
 				btnNewButton_7.setBounds(10, 86, 69, 21);
-				frame.getContentPane().add(btnNewButton_7);
+				frmRadio.getContentPane().add(btnNewButton_7);
 				btnNewButton_7.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (power == true) {
@@ -207,7 +209,7 @@ public class RadioGUI {
 				btnFm.setFont(new Font("Tahoma", Font.BOLD, 12));
 				btnFm.setBackground(Color.DARK_GRAY);
 				btnFm.setBounds(10, 113, 69, 21);
-				frame.getContentPane().add(btnFm);
+				frmRadio.getContentPane().add(btnFm);
 				btnFm.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (power == true) {
@@ -227,70 +229,71 @@ public class RadioGUI {
 			}
 		});
 		btnNewButton.setBounds(10, 188, 69, 23);
-		frame.getContentPane().add(btnNewButton);
+		frmRadio.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("SET 2");
 		btnNewButton_1.setBounds(89, 188, 69, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		frmRadio.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("SET 3");
 		btnNewButton_2.setBounds(168, 188, 69, 23);
-		frame.getContentPane().add(btnNewButton_2);
+		frmRadio.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("SET 4");
 		btnNewButton_3.setBounds(247, 188, 69, 23);
-		frame.getContentPane().add(btnNewButton_3);
+		frmRadio.getContentPane().add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("SET 5");
 		btnNewButton_4.setBounds(326, 188, 69, 23);
-		frame.getContentPane().add(btnNewButton_4);
+		frmRadio.getContentPane().add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("SET 6");
 		btnNewButton_5.setBounds(405, 188, 69, 23);
-		frame.getContentPane().add(btnNewButton_5);
+		frmRadio.getContentPane().add(btnNewButton_5);
 		
 		txtRadio = new JTextField();
+		txtRadio.setEditable(false);
 
 		txtRadio.setHorizontalAlignment(SwingConstants.CENTER);
 		txtRadio.setFont(new Font("Tahoma", Font.PLAIN, 72));
 		txtRadio.setForeground(new Color(255, 255, 255));
 		txtRadio.setBackground(new Color(0, 0, 0));
 		txtRadio.setBounds(89, 11, 306, 123);
-		frame.getContentPane().add(txtRadio);
+		frmRadio.getContentPane().add(txtRadio);
 		
 		JButton btnSet_1 = new JButton("SET 8");
 		btnSet_1.setBounds(89, 222, 69, 23);
-		frame.getContentPane().add(btnSet_1);
+		frmRadio.getContentPane().add(btnSet_1);
 		
 		JButton btnSet_2 = new JButton("SET 9");
 		btnSet_2.setBounds(168, 222, 69, 23);
-		frame.getContentPane().add(btnSet_2);
+		frmRadio.getContentPane().add(btnSet_2);
 		
 		JButton btnSet = new JButton("SET 7");
 		btnSet.setBounds(10, 222, 69, 23);
-		frame.getContentPane().add(btnSet);
+		frmRadio.getContentPane().add(btnSet);
 		
 		JButton btnSet_3 = new JButton("SET 10");
 		btnSet_3.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnSet_3.setBounds(247, 222, 69, 23);
-		frame.getContentPane().add(btnSet_3);
+		frmRadio.getContentPane().add(btnSet_3);
 		
 		JButton btnSet_4 = new JButton("SET 11");
 		btnSet_4.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnSet_4.setBounds(326, 222, 69, 23);
-		frame.getContentPane().add(btnSet_4);
+		frmRadio.getContentPane().add(btnSet_4);
 		
 		JButton btnSet_5 = new JButton("SET 12");
 		btnSet_5.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnSet_5.setBounds(405, 222, 69, 23);
-		frame.getContentPane().add(btnSet_5);
+		frmRadio.getContentPane().add(btnSet_5);
 		
 		
 		btnNewButton_6.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_6.setBackground(Color.DARK_GRAY);
 		btnNewButton_6.setForeground(Color.RED);
 		btnNewButton_6.setBounds(2, 11, 82, 36);
-		frame.getContentPane().add(btnNewButton_6);
+		frmRadio.getContentPane().add(btnNewButton_6);
 		
 		
 		
@@ -300,14 +303,14 @@ public class RadioGUI {
 		btnNewButton_8.setBackground(Color.DARK_GRAY);
 		btnNewButton_8.setForeground(Color.RED);
 		btnNewButton_8.setBounds(413, 11, 48, 23);
-		frame.getContentPane().add(btnNewButton_8);
+		frmRadio.getContentPane().add(btnNewButton_8);
 		
 		
 		button.setForeground(Color.RED);
 		button.setFont(new Font("Tahoma", Font.BOLD, 14));
 		button.setBackground(Color.DARK_GRAY);
 		button.setBounds(413, 45, 48, 23);
-		frame.getContentPane().add(button);
+		frmRadio.getContentPane().add(button);
 		
 		
 		
