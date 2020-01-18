@@ -1,11 +1,19 @@
 // Universidad del Valle de Guatemala //
 // Algoritmos y Estructuras de datos  //
+<<<<<<< HEAD
 // Seccion 70                         //
 // 									  //
 // M. Alejandro Alvarez Vidal - 12429 //
 // Daniela Villamar 			      //
 // Mirka Monzon - 18139               //
 
+=======
+// Sección 70                         //
+// 									  //
+// M. Alejandro Alvarez Vidal - 12429 //
+// Daniela Villamar - 19086			      //
+// Mirka Monzon                       //
+>>>>>>> 991f8263270040d16c6c6279b27542b5fa2373bd
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
